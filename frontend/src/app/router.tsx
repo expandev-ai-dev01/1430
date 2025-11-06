@@ -5,6 +5,8 @@ import { LoadingSpinner } from '@/core/components/LoadingSpinner';
 import { PublicLayout } from '@/pages/layouts/PublicLayout';
 
 const HomePage = lazy(() => import('@/pages/Home'));
+const EventCalendarPage = lazy(() => import('@/pages/EventCalendar'));
+const EventDetailPage = lazy(() => import('@/pages/EventDetail'));
 const NotFoundPage = lazy(() => import('@/pages/NotFound'));
 
 /**
@@ -32,6 +34,22 @@ export const router = createBrowserRouter([
             element: (
               <Suspense fallback={<LoadingSpinner />}>
                 <HomePage />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'eventos',
+            element: (
+              <Suspense fallback={<LoadingSpinner />}>
+                <EventCalendarPage />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'eventos/:id',
+            element: (
+              <Suspense fallback={<LoadingSpinner />}>
+                <EventDetailPage />
               </Suspense>
             ),
           },
